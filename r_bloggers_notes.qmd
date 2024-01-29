@@ -1,0 +1,46 @@
+---
+title: "R-Bloggers Notes"
+author: "Faith St. Clair"
+format: 
+  html:
+    toc: true
+    theme: darkly
+editor: source
+---
+
+## Remove Rows from the Data Frame in R
+
+* install package *dplyr*
+
+**1. Remove any rows containing NA's:**
+
+  * Eliminate any rows from the data frame that have NA values.
+  
+    * *df %>%  na.omit()*
+  
+**2. Remove any rows in which there are no NA's in a given column:**
+
+  * Delete any row in a column containing NA values.
+  
+    * *df %>%  filter(!is.na(column_name))*
+  
+**3. Get rid of duplicates:**
+
+  * Eliminate duplicate rows.
+ 
+    * *df %>%  distinct()*
+  
+**4. Remove rows based on their index position:**
+
+  * Eliminate rows based on their index position.
+  
+    * Removing rows 1, 2, and 4:
+    
+      *df %>%  filter(!row_number() %in% c(1, 2, 4))*
+  
+**5. Based on the condition, remove rows:**
+
+  * Eliminate rows based on certain criteria, such as only keeping rows when the team letter is ‘A’ or the number of points is more than eight.
+
+     * *df %>%  filter(column1=='A' | column2 > 8)*
+  
