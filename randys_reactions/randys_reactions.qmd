@@ -1,0 +1,14 @@
+---
+title: "Randy's Reactions"
+format: html
+editor: source
+---
+
+## Violin plot
+
+NICE!  I like violin plots and feel they should be used more!  Some notes:
+
+* Check out Pirate Plots https://cran.r-project.org/web/packages/yarrr/vignettes/pirateplot.html
+* Totally OK, you added a package making your plot not base R
+* In the future add the URL of the tutorial so you or others can find it
+* Note the comments-if you wrote them, AWESOME, if they are from the tutorial thanks for keeping as they will be a good example for your future code.
