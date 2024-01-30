@@ -1,0 +1,49 @@
+---
+title: "Base R Violin Plot"
+author: "Faith St. Clair"
+date: 1.30.2024
+format: 
+  html:
+    toc: true
+    theme: darkly
+editor: source
+---
+
+## Violin Plots
+
+-   Violin plots compare the distribution of several groups
+
+-   *vioplot* library is a way to build violin plots in R
+
+## *vioplot*
+
+-   Builds a violin plot as a boxplot with a rotated kernel density plot on each side
+
+-   To represent several groups, use the *with* function
+
+## Violin Plot of *C. bombi* Rosette Formation in the Presence of Sunflower and Buckwheat Pollen *in vitro*
+
+```{r} 
+#| echo: false
+# Load the vioplot library 
+library(vioplot) 
+?vioplot #for vioplot description
+
+# Create data
+
+treatment <- c(rep("Sunflower Pollen", 25) , rep("Buckwheat Pollen", 25)) #two treatment groups with how many total
+value <- c( sample(4:10, 25 , replace=T) , sample(c(6:16), 25 , replace=T) ) #values of each sample with how many total
+data <- data.frame(treatment,value) #create data frame with the treatment and values created
+
+colors <- c("yellow", "orange") #set the colors for SF and BW pollen
+  
+# Draw the plot
+
+with(data , 
+     vioplot( value[treatment=="Sunflower Pollen"] , value[treatment=="Buckwheat Pollen"], #create plot with the values and treatments set above
+      ylab = "Number of Rosettes", #add y-axis labels
+      col=colors , #set colors
+      names=c("Sunflower Pollen","Buckwheat Pollen") )) #set names of each group on x-axis
+
+```
+
