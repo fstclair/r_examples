@@ -1,0 +1,21 @@
+---
+title: "R-ladies"
+author: "Faith St. Clair"
+format: 
+  html:
+    toc: true
+    theme: darkly
+editor: source
+---
+
+## There are 3 components to a Quarto documents
+
+1. the YML header:
+  * parameters that define what the document will look like
+  * color, background, typeface. table of contents, etc
+  * YML = yet another markup language
+  
+2. Prose aka text
+  * can make text **bold**
+  * can make text *italic*
+  * and on and on
