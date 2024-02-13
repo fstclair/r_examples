@@ -29,11 +29,7 @@ Over the course it is expected you will:
 
 ## Personal objectives
 
-1.  Make a sweet violin plot ggplot. Customized and easy to read.  Note this tutorial: https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/
+1.  Make a sweet violin plot ggplot. Customized and easy to read. Note this tutorial: https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/
 2.  Practice heatmaps with c. f. if that makes sense---proteomics
 3.  Write everything in a quarto document
 4.  Consider working through this tutorial https://pnnl-comp-mass-spec.github.io/proteomics-data-analysis-tutorial/
-
-
-
-

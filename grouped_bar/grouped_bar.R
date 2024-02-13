@@ -11,6 +11,7 @@
 library(tidyverse)
 
 data <- read_csv("grouped_bar/bps_evt_glaba.csv")
+data
 
 
 # wrangle data -----

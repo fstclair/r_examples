@@ -13,14 +13,30 @@
 install.packages('pacman')
 library(pacman)
 
-p_load(chorddiag, htmlwidgets, tidyverse)
+p_load(chorddiag, htmlwidgets, tidyverse, igraph, readr, tidygraph) #loads and installs packages
 
+#force? install chorddiag
+##install.packages("chorddiag")
+install.packages("devtools")
 
+devtools::install_github("mattflor/chorddiag", build_vignettes = TRUE)
+
+#check all packages are installed and selected
+library(chorddiag)
+library(htmlwidgets)
+library(igraph)
+library(readr)
+library(tidygraph)
+library(tidyverse)
 
 # read in and wrangle data ------
 # read in data
+bps2evt_chord <- read_csv("chord_demo/bps2evt_chord.csv")
+View(bps2evt_chord)
 chord_df <- read_csv("chord_demo/bps2evt_chord.csv")
 #view(histFireGVchord)
+#ℹ Use `spec()` to retrieve the full column specification for this data.
+#ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 #convert data to matrix
 matrix_df <- as.matrix(as_adjacency_matrix(as_tbl_graph(chord_df),
