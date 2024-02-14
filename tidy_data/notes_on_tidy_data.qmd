@@ -1,0 +1,103 @@
+---
+title: "Tidy Data"
+author: "Faith St. Clair"
+format: 
+  html:
+    toc: true
+    theme: darkly
+editor: source
+---
+
+## [**Tidy Data**](https://vita.had.co.nz/papers/tidy-data.pdf)
+
+___________________________________________
+
+# **Introduction**
+
+- Data preparation is not just a first step, but must be repeated many over the course of analysis as new problems come to light or new data is collected
+
+- **data tidying:** structuring datasets to facilitate analysis
+
+- Principles provide a standard way to organize data values within a dataset
+
+- Tidy datasets and tidy tools work hand in hand to make data analysis easier, allowing you to focus on the interesting domain problem, not on the uninteresting logistics of data
+
+*Paper Overview*
+
+Section 2 begins by defining the three characteristics that make a dataset tidy.
+
+Since most real world datasets are not tidy, Section 3 describes the operations needed to make messy datasets tidy, and illustrates the techniques with a range of real examples.
+
+Section 4 defines tidy tools, tools that input and output tidy datasets, and discusses how tidy data and tidy tools together can make data analysis easier. 
+
+These principles are illustrated with a small case study in Section 5. 
+
+Section 6 concludes with a discussion of what this framework misses and what other approaches might be fruitful to pursue.
+
+________________________________________
+
+# **Defining tidy data**
+
+**Data structure**
+
+Most statistical datasets are rectangular tables made up of **rows** and **columns**.
+
+**Data semantics**
+
+A dataset is a collection of **values**, usually either numbers (if quantitative) or strings (if qualitative).
+
+Every value belongs to a **variable** and an
+**observation**.
+
+- A variable contains all values that measure the same underlying attribute (like height, temperature, duration) across units.
+- An observation contains all values measured on the same unit (like a person, or a day, or a race) across attributes.
+
+
+A general rule of thumb is that it is
+easier to describe functional relationships between variables (e.g., z is a linear combination of x and y, density is the ratio of weight to volume) than between rows, and it is easier to make comparisons between groups of observations (e.g., average of group a vs. average of group b) than between groups of columns.
+
+
+**Tidy data**
+
+Standard way of mapping the meaning of a dataset to its structure
+
+In **tidy data**:
+
+1. Each variable forms a column.
+
+2. Each observation forms a row.
+
+3. Each type of observational unit forms a table.
+
+Each row represents an observation, the result of one treatment on one person, and each column is a variable.
+
+values of different variables from the same
+observation are always paired
+
+good ordering makes it easier to scan the raw values
+
+__________________________________________
+
+# **Tidying messy datasets**
+
+5 most common problems with messy datasets
+
+• Column headers are values, not variable names.
+
+• Multiple variables are stored in one column.
+
+• Variables are stored in both rows and columns.
+
+• Multiple types of observational units are stored in the same table.
+
+• A single observational unit is stored in multiple tables
+
+
+**Column headers are values, not variable names**
+
+
+
+
+
+
+
