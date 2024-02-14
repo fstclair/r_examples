@@ -1,0 +1,414 @@
+---
+title: "Homework 3.13"
+author: "Faith St. Clair"
+format: 
+  html:
+    toc: true
+    theme: darkly
+editor: source
+---
+
+# [**Data Wrangling**](https://bookdown.org/jonander99/bookdown-R-Essentials/IntroDataWrangling.html)
+
+*Basic data handling and processing functions for basic analyses, comparisons, and graphics*
+
+## **Tidy Data**
+
+Standard way of mapping the meaning of a dataset to its structure. 
+
+In tidy data:
+
+- Each variable forms a column.
+
+_ Each observation forms a row.
+
+- Each type of observational unit forms a table.
+
+## **Subset using filter**
+
+Examine a subset of data for only one country.
+
+Use gapminder dataset then "pipes" it into the filtering (selecting rows) action so that only dataset rows from Australia are selected.
+
+> Pipe Funtion: `%>%` 
+
+```{r}
+#load libraries
+#library(tidyverse)
+#library(gapminder)
+
+#if *tidyverse* or *dplyr* packages have been installed, do not need to add `dplyr::` prefix to `filter` command
+
+gapminder %>% filter(country=="Australia") %>% head(n=12) #shows the top 12 rows in Australia
+##default is 6 rows
+```
+
+
+## **Subset using multiple conditions**
+
+Select observations by continent and year.
+
+`head` function will show some rows selected.
+
+gapminder dataframe is piped to the `filter` function to select rows to be further piped to the `head()` function for display.
+
+```{r}
+#both conditions must be TRUE for the row to enter the dataframe to displayed by the `head()` function
+
+gapminder %>% 
+  dplyr::filter(continent=="Oceania" & year==1997) %>% 
+  head()
+
+#also produces the same result
+
+gapminder %>% 
+  dplyr::filter(continent=="Oceania") %>% 
+  dplyr::filter(year==1997) %>%
+  head()
+
+#next, use an "or" condition to specify the desired rows in the first `filter` expression - the next `filter` permits only observations from 1997
+
+gapminder %>% 
+  dplyr::filter(continent=="Oceania" | continent =="Americas") %>%
+  dplyr::filter(year==1997) %>% 
+  head()
+
+#next, select observations/rows from a list of countries also restricts year to 1997
+
+gapminder %>% 
+  filter(country %in% c("Australia", "New Zealand","Argentina") & year==1997) %>% 
+  head()
+
+```
+
+
+#next example selects observations by omitting one continent (Oceania is excluded) and then specifies a year
+
+
+```{r}
+#The code that causes “omit” is the “!=” syntax. 
+gapminder %>% 
+  filter(continent!="Oceania" & year==1997) %>% 
+  head()
+#the logical operator “AND” is expressed by the & expression
+```
+
+*Please note that in all the above examples, the filter function accepts/rejects rows or observations in a dataframe according to the logical conditions specified inside the filter function.*
+
+
+## **Saving as a new dataframe**
+
+```{r}
+#the modified dataset as a new dataframe called gap97 
+gap97 <- gapminder %>% 
+  filter(continent!="Oceania" & year==1997) 
+#
+dplyr::glimpse(gap97)
+```
+
+
+## **Subset using top_n**
+
+make a dataset based on the ten countries in 1997 with highest gdp
+
+```{r}
+gapminder %>% filter(year==1997) %>%
+  top_n(n = 10, wt = gdpPercap) %>%
+  head(n=10)
+#gapminder data, year set to 1997, top_n to set top 10 countries with highest gdp per cap
+```
+
+
+## **Subset using select**
+
+The filter function controls the rows of the dataframe.
+
+We frequently want to create a data subset with only a few variables when the original dataset has many variables. 
+
+**The select function is used to select and rename variables.**
+
+```{r}
+# the next command selects three variables and renames two of them: 
+gapminder %>% 
+  dplyr::select(country, Year=year,LifeExp=lifeExp) %>% 
+  head()
+#select country, select and change year and lifeexp
+
+# to change the order of display, puts year first in the list of variables
+gapminder %>% 
+  select(year,everything()) %>% 
+  head()
+```
+
+
+The `profiling_num` command from the *funModeling* package produces a lot of output
+
+show how to modify the output of this command
+
+The command produces a dataframe which has many columns we might not wish to display or consider further. 
+
+
+Start by removing some columns of summary statistics that we wish to ignore. 
+
+**Selecting a list of column names with a “minus” - sign in front of the list will remove these items from the dataframe and keep the rest in place**
+
+The command below pipes the modified dataframe to the kable command in the `knitr` package for a more pleasing tabular display. 
+
+```{r}
+# Let's observe the contents of profiling_num:
+funModeling::profiling_num(gapminder) %>% 
+  dplyr::glimpse()
+
+# now remove unwanted columns from summary display
+funModeling::profiling_num(gapminder) %>%
+  select(-c("variation_coef","skewness","kurtosis","range_98","range_80","p_01","p_99")) %>%
+  knitr::kable()
+#use select function to select the unwanted columns with “-c”
+```
+
+
+Now use a different approach
+- Explicitly select the statistics (columns) we want to keep and display. 
+- The most commonly used summaries are chosen. 
+
+```{r}
+funModeling::profiling_num(gapminder) %>%
+  select(c("variable","mean","std_dev","p_25","p_50","p_75")) %>%
+  knitr::kable()
+#now without a minus sign, so selecting the columns to keep
+```
+
+
+## **Order using arrange**
+
+to know the countries with the largest or smallest values of some variables
+
+In the following examples we sort/order by the values of life expectancy. 
+
+In the code below, when we use the command filter(year==1997), the double equal sign means make a logical check if year is 1997, and only allow dataframe rows where this is true to pass through to the next stage of the analysis pipeline. 
+
+**The `desc` function means the values will be arranged in descending values (large to small) - default is ascending (small to large).**
+
+```{r}
+# This command will show the countries with highest life expectancy because 
+# the data are arranged in descending order of life expectancy (larger to smaller)
+gapminder %>% 
+  dplyr::filter(year==1997) %>%   
+  dplyr::select(country, continent, lifeExp) %>% 
+  dplyr::arrange(desc(lifeExp)) %>% 
+  head()
+#filter year 1997, select columns, arrange lifeexp in descending order
+
+# This command uses the default ascending (increasing) order with
+# respect to life expectancy (order smaller to larger)
+gapminder %>% 
+  filter(year==1997) %>%  
+  select(country, continent, lifeExp) %>% 
+  arrange(lifeExp) %>% 
+  head()
+#same but ascending order
+```
+
+
+**The top_n function from the dplyr package will select the n rows with the largest values of a variable**
+
+This is similar to the code above that orders the rows - then use `head` function to select the number of desired rows.
+
+This first example uses the default alphabetical ordering of country name.
+
+```{r}
+gapminder %>% 
+  filter(year==1997) %>%  
+  select(country, continent, lifeExp) %>%
+  dplyr::top_n(n=6,wt=lifeExp) %>%
+  knitr::kable()
+
+#order results by life expectancy
+gapminder %>% 
+  filter(year==1997) %>%  
+  select(country, continent, lifeExp) %>%
+  dplyr::top_n(n=6,wt=lifeExp) %>%
+  dplyr::arrange(desc(lifeExp)) %>%
+  knitr::kable()
+```
+
+
+The countries with the largest life expectancy can then be ordered by another variable like population. 
+
+
+Here we find the 6 countries in 1997 with the highest life expectancy - then display them in order of population size.
+
+```{r}
+gapminder %>% 
+  filter(year==1997) %>%  
+  select(country, continent, lifeExp, pop) %>%
+  dplyr::top_n(n=6,wt=lifeExp) %>%
+  dplyr::arrange(desc(pop)) %>%
+  knitr::kable()
+```
+
+
+## **Grouped filter**
+
+Another useful verb in the tidyverse is `group_by`. 
+
+view the two countries with the highest life expectancy in 1997, in each continent
+
+```{r}
+gapminder %>% 
+  filter(year==1997) %>%  
+  select(country, continent, lifeExp, pop) %>%
+  dplyr::group_by(continent) %>%
+  dplyr::top_n(n=2,wt=lifeExp) %>%
+  dplyr::arrange(continent) %>%
+  knitr::kable()
+```
+
+
+## **New variables using mutate**
+
+create a new variable based on an existing variable. 
+
+Here we illustrate by making a new variable - the natural logarithm of population - based on the original variable pop using the `mutate` function.
+
+```{r}
+gapminder %>%
+  dplyr::mutate(logpopulation = log(pop)) %>%
+  dplyr::glimpse()
+```
+
+> change the name of the new variable from `logpopulation` to something shorter like `logPop`, we could re-run the `mutate` command, or use a `rename` function.
+
+In addition we create a new version of the gapminder dataset that contains the new variable - called gapVers1. 
+
+This dataframe is now available to be used in the ongoing analysis.
+
+```{r}
+gapVers1 <- gapminder %>%
+  dplyr::mutate(logpopulation = log(pop)) %>%
+  dplyr::rename(logPop=logpopulation) 
+#
+  dplyr::glimpse(gapVers1)
+```
+
+
+The next code uses a `mutate` command with logical conditions to make a new, two-level categorical variable region as a character variable. 
+
+Then we use `mutate` again to convert `region` (character) to a factor variable named `regionf`. 
+
+In statistical models, factor variables are preferred, but in data handling stages, character versions are probably easier to manipulate.
+
+The `if_else` function from dplyr has the form `if_else(logical condition,value if TRUE, value if FALSE).
+
+
+The next example uses the “T-pipe” function `%T>%` to break the piping so that the result of the second `mutate` flows to both `glimpse` and to `head` - in this construction, it is understood the output of `glimpse` does not pipe to head, but rather the original data flow from the second mutate.
+
+```{r}
+gapminder %>% 
+  dplyr::mutate(region = if_else(country=="Oceania","Oceania","NotOceania")) %>%
+  dplyr::mutate(regionf = as_factor(region)) %T>%
+  dplyr::glimpse() %>%
+  head()
+```
+
+
+## **Simple Counting Using `tally()` and `count()`**
+
+wish to know how many observations/rows satisfy a set of conditions
+
+filter the observations for the given conditions, then count them using the `tally()` or `count()` functions from dplyr.
+
+
+Essentially, `count()` is a short-hand for `group_by() + tally()`
+
+For example, what if we want to know how many observations are from continent ‘Americas’ in 1997.
+
+These examples have no grouping, no group_by is being used.
+
+```{r}
+gapminder %>% dplyr::filter(year==1997) %>%
+  dplyr::filter(continent=="Americas") %>%
+  dplyr::tally()
+
+gapminder %>% dplyr::filter(year==1997) %>%
+  dplyr::filter(continent=="Americas") %>%
+  dplyr::count()
+
+#group by continent
+
+gapminder %>% dplyr::filter(year==1997) %>%
+  dplyr::group_by(continent) %>%
+  dplyr::filter(continent=="Americas") %>%
+  dplyr::tally()
+
+#
+gapminder %>% dplyr::filter(year==1997) %>%
+  dplyr::group_by(continent) %>%
+  dplyr::tally()
+
+gapminder %>% dplyr::filter(year==1997) %>%
+  dplyr::group_by(continent) %>%
+  dplyr::filter(continent=="Americas") %>%
+  dplyr::count()
+
+#
+gapminder %>% dplyr::filter(year==1997) %>%
+  dplyr::count(continent)
+```
+
+
+## **Missing values**
+
+If a variable is not complete and contains empty places, these are denoted in R as NA. 
+
+We will often wish to create a dataframe without any missing values, or discover how many rows contain variables with missing values.
+
+First let’s create a small dataset with missing values:
+
+```{r}
+x <- c(1,2,NA,4)
+y <- c(11,12,13,NA)
+z <- c(7,8,9,10)
+tempdf <- data.frame(x,y,z)
+tempdf
+
+# count missing values for variable x
+tempdf %>%
+  dplyr::summarise(count = sum(is.na(x)))
+
+# count rows with missing y
+tempdf %>%
+  dplyr::tally(is.na(y))
+
+# subset of rows with complete data for specified columns
+tempdf %>%
+  dplyr::select(y,z) %>%
+  tidyr::drop_na() %>%
+  head()
+
+#   drop rows with missing values in all variables
+tempdf %>%
+  tidyr::drop_na() %>%
+  head()
+
+#Use base is.na function
+tempdf %>%
+  filter(!is.na(x),           # remove obs with missing x
+         !is.na(y),  # remove obs with missing y
+         !is.na(z))                # remove obs with missing z
+
+```
+
+**Some code that will execute a filter that will permit only rows with entirely complete data in x to pass through to the dataset**
+
+```{r}
+tempdf %>%
+  filter(x %>% is.na() %>% magrittr::not()) %>%
+  head()
+```
+
+
+
+
+
+
