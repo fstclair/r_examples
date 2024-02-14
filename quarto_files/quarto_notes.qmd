@@ -1,0 +1,106 @@
+---
+title: "Quarto Notes"
+author: "Faith St. Clair"
+format: html
+editor: visual
+---
+
+# **Quarto Notes**
+
+## **Text formatting**
+
+*italic* **bold** ~~strikeout~~ `code`
+
+superscript^2^ subscript~2~
+
+[underline]{.underline} [small caps]{.smallcaps}
+
+## Headings
+
+# 1st Level Header
+
+## 2nd Level Header
+
+### 3rd Level Header
+
+## Lists
+
+-   Bulleted list item 1
+
+-   Item 2
+
+    -   Item 2a
+
+    -   Item 2b
+
+1.  Numbered list item 1
+
+2.  Item 2.
+    The numbers are incremented automatically in the output.
+
+## Links and images
+
+<http://example.com>
+
+[linked phrase](http://example.com)
+
+![optional caption text](quarto.png){fig-alt="Quarto logo and the word quarto spelled in small case letters"}
+
+## Tables
+
+| First Header | Second Header |
+|--------------|---------------|
+| Content Cell | Content Cell  |
+| Content Cell | Content Cell  |
+
+
+
+## **Chunk Options**
+
+`eval: false` prevents code from being evaluated. (And obviously if the code is not run, no results will be generated). This is useful for displaying example code, or for disabling a large block of code without commenting each line.
+
+`include: false` runs the code, but doesn’t show the code or results in the final document. Use this for setup code that you don’t want cluttering your report.
+
+`echo: false` prevents code, but not the results from appearing in the finished file. Use this when writing reports aimed at people who don’t want to see the underlying R code.
+
+`message: false` or warning: false prevents messages or warnings from appearing in the finished file.
+
+`results: hide` hides printed output; `fig-show: hide` hides plots.
+
+`error: true` causes the render to continue even if code returns an error. This is rarely something you’ll want to include in the final version of your report, but can be very useful if you need to debug exactly what is going on inside your .qmd. It’s also useful if you’re teaching R and want to deliberately include an error. The default, error: false causes rendering to fail if there is a single error in the document.
+
+
+
+## **Five options with figure sizing**
+
+- Plots tend to be more aesthetically pleasing if they have consistent width. To enforce this, set `fig-width: 6 (6”)` and `fig-asp: 0.618` (the golden ratio) in the defaults. Then in individual chunks, only adjust fig-asp.
+
+- Control the output size with `out-width` and set it to a percentage of the body width of the output document. We suggest to `out-width: "70%"` and `fig-align: center`.
+
+   That gives plots room to breathe, without taking up too much space.
+
+- To put multiple plots in a single row, set the `layout-ncol` to 2 for two plots, 3 for three plots, etc. This effectively sets `out-width` to “50%” for each of your plots if `layout-ncol` is 2, “33%” if `layout-ncol` is 3, etc. Depending on what you’re trying to illustrate (e.g., show data or show plot variations), you might also tweak `fig-width`.
+
+
+
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
