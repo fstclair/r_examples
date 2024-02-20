@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -72,10 +38,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="fullcontent">
+<body>
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#quarto-notes" id="toc-quarto-notes" class="nav-link active" data-scroll-target="#quarto-notes"><strong>Quarto Notes</strong></a>
+  <ul class="collapse">
+  <li><a href="#list-of-themes" id="toc-list-of-themes" class="nav-link" data-scroll-target="#list-of-themes"><strong>List of Themes</strong></a></li>
+  <li><a href="#text-formatting" id="toc-text-formatting" class="nav-link" data-scroll-target="#text-formatting"><strong>Text formatting</strong></a></li>
+  <li><a href="#headings" id="toc-headings" class="nav-link" data-scroll-target="#headings">Headings</a></li>
+  </ul></li>
+  <li><a href="#st-level-header" id="toc-st-level-header" class="nav-link" data-scroll-target="#st-level-header">1st Level Header</a>
+  <ul class="collapse">
+  <li><a href="#nd-level-header" id="toc-nd-level-header" class="nav-link" data-scroll-target="#nd-level-header">2nd Level Header</a>
+  <ul class="collapse">
+  <li><a href="#rd-level-header" id="toc-rd-level-header" class="nav-link" data-scroll-target="#rd-level-header">3rd Level Header</a></li>
+  </ul></li>
+  <li><a href="#lists" id="toc-lists" class="nav-link" data-scroll-target="#lists">Lists</a></li>
+  <li><a href="#links-and-images" id="toc-links-and-images" class="nav-link" data-scroll-target="#links-and-images">Links and images</a></li>
+  <li><a href="#tables" id="toc-tables" class="nav-link" data-scroll-target="#tables">Tables</a></li>
+  <li><a href="#chunk-options" id="toc-chunk-options" class="nav-link" data-scroll-target="#chunk-options"><strong>Chunk Options</strong></a></li>
+  <li><a href="#five-options-with-figure-sizing" id="toc-five-options-with-figure-sizing" class="nav-link" data-scroll-target="#five-options-with-figure-sizing"><strong>Five options with figure sizing</strong></a></li>
+  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">Quarto</a></li>
+  <li><a href="#running-code" id="toc-running-code" class="nav-link" data-scroll-target="#running-code">Running Code</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -103,6 +96,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="quarto-notes" class="level1">
 <h1><strong>Quarto Notes</strong></h1>
+<section id="list-of-themes" class="level2">
+<h2 class="anchored" data-anchor-id="list-of-themes"><a href="https://quarto.org/docs/output-formats/html-themes.html"><strong>List of Themes</strong></a></h2>
+<p><em>favorites italicized</em></p>
+<p>default</p>
+<p>cerulean</p>
+<p>cosmo</p>
+<p>cyborg</p>
+<p><em>darkly</em></p>
+<p>flatly</p>
+<p>journal</p>
+<p><em>litera</em></p>
+<p>lumen</p>
+<p>lux</p>
+<p>materia</p>
+<p>minty</p>
+<p><em>morph</em></p>
+<p>pulse</p>
+<p>quartz</p>
+<p>sandstone</p>
+<p>simplex</p>
+<p><em>sketchy</em></p>
+<p><em>slate</em></p>
+<p>solar</p>
+<p>spacelab</p>
+<p>superhero</p>
+<p><em>united</em></p>
+<p><em>vapor</em></p>
+<p>yeti</p>
+<p>zephyr</p>
+</section>
 <section id="text-formatting" class="level2">
 <h2 class="anchored" data-anchor-id="text-formatting"><strong>Text formatting</strong></h2>
 <p><em>italic</em> <strong>bold</strong> <del>strikeout</del> <code>code</code></p>
@@ -177,6 +200,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><code>results: hide</code> hides printed output; <code>fig-show: hide</code> hides plots.</p>
 <p><code>error: true</code> causes the render to continue even if code returns an error. This is rarely something you’ll want to include in the final version of your report, but can be very useful if you need to debug exactly what is going on inside your .qmd. It’s also useful if you’re teaching R and want to deliberately include an error. The default, error: false causes rendering to fail if there is a single error in the document.</p>
 </section>
+<section id="five-options-with-figure-sizing" class="level2">
+<h2 class="anchored" data-anchor-id="five-options-with-figure-sizing"><strong>Five options with figure sizing</strong></h2>
+<ul>
+<li><p>Plots tend to be more aesthetically pleasing if they have consistent width. To enforce this, set <code>fig-width: 6 (6”)</code> and <code>fig-asp: 0.618</code> (the golden ratio) in the defaults. Then in individual chunks, only adjust fig-asp.</p></li>
+<li><p>Control the output size with <code>out-width</code> and set it to a percentage of the body width of the output document. We suggest to <code>out-width: "70%"</code> and <code>fig-align: center</code>.</p>
+<p>That gives plots room to breathe, without taking up too much space.</p></li>
+<li><p>To put multiple plots in a single row, set the <code>layout-ncol</code> to 2 for two plots, 3 for three plots, etc. This effectively sets <code>out-width</code> to “50%” for each of your plots if <code>layout-ncol</code> is 2, “33%” if <code>layout-ncol</code> is 3, etc. Depending on what you’re trying to illustrate (e.g., show data or show plot variations), you might also tweak <code>fig-width</code>.</p></li>
+</ul>
+</section>
 <section id="quarto" class="level2">
 <h2 class="anchored" data-anchor-id="quarto">Quarto</h2>
 <p>Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <a href="https://quarto.org" class="uri">https://quarto.org</a>.</p>
@@ -184,18 +216,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="running-code" class="level2">
 <h2 class="anchored" data-anchor-id="running-code">Running Code</h2>
 <p>When you click the <strong>Render</strong> button a document will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
 <p>You can add options to executable code like this</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 4</code></pre>
-</div>
-</div>
 <p>The <code>echo: false</code> option disables the printing of code (only output is displayed).</p>
 </section>
 </section>

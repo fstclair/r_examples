@@ -1,11 +1,74 @@
 ---
 title: "Quarto Notes"
 author: "Faith St. Clair"
-format: html
-editor: visual
+format: 
+  html:
+    toc: true
+    theme: sketchy
+editor: source
+include: false
+linkcolor: 'pink'
 ---
 
 # **Quarto Notes**
+
+## [**List of Themes**](https://quarto.org/docs/output-formats/html-themes.html)
+
+*favorites italicized*
+
+default
+
+cerulean
+
+cosmo
+
+cyborg
+
+*darkly*
+
+flatly
+
+journal
+
+*litera*
+
+lumen
+
+lux
+
+materia
+
+minty
+
+*morph*
+
+pulse
+
+quartz
+
+sandstone
+
+simplex
+
+*sketchy*
+
+*slate*
+
+solar
+
+spacelab
+
+superhero
+
+*united*
+
+*vapor*
+
+yeti
+
+zephyr
+
+
 
 ## **Text formatting**
 
