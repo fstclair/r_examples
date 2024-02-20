@@ -1,8 +1,13 @@
 ---
 title: "ggplot2"
 author: "Faith St. Clair"
-format: html
-editor: visual
+format: 
+  html:
+    toc: true
+    theme: united
+editor: source
+include: false
+linkcolor: 'hotpink'
 ---
 
 ## [**{ggplot2}**](https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/#data)
@@ -105,3 +110,122 @@ g + geom_point(color = "firebrick", shape = "diamond", size = 2)
 ```
 
 [**Full list of R colors**](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf)
+
+
+Each geom comes with its own properties (called *arguments*) and the same argument may result in a different change depending on the geom you are using.
+
+```{r}
+
+g + geom_point(color = "firebrick", shape = "diamond", size = 2) +
+    geom_line(color = "firebrick", linetype = "dotted", lwd = .3)
+
+```
+
+
+## **Replace the default `ggplot2` theme**
+
+Get rid of grayish default
+
+Built-in themes:
+
+> `theme_bw()` #black and white theme
+
+> `theme_set()` #to set all the following plots will have same black and white theme
+
+
+```{r}
+
+theme_set(theme_bw())
+
+g + geom_point(color = "firebrick")
+
+
+```
+
+
+Use [**"Working with Themes"**](https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/#themes) for theme customization.
+
+*From the next chapter on, we will also use the `theme()` function to customize particular elements of the theme.*
+
+
+[**Which details of a ggplot theme can be modified**](https://ggplot2.tidyverse.org/reference/theme.html)
+
+
+## **Working with Axes**
+
+### **Change Axis Titles**
+
+- Add well-writted labels to the axes
+
+> `labs()` with a character string to each label you want to change
+
+```{r}
+#here, we will be labeling x and y axes
+
+ggplot(chic, aes(x = date, y = temp)) +
+  geom_point(color = "firebrick") +
+  labs(x = "Year", y = "Temperature (°F)")
+
+
+
+```
+
+*Add each axis title via `xlab()` and `ylab()`*
+
+- Can add symbols and other things, such as superscripts
+
+```{r}
+
+ggplot(chic, aes(x = date, y = temp)) +
+  geom_point(color = "firebrick") +
+  labs(x = "Year", y = expression(paste("Temperature (", degree ~ F, ")"^"(Hey, why should we use metric units?!)")))
+
+```
+
+
+### **Increase Space between Axis and Axis Titles**
+
+`theme()` is essential and used to modify particular theme elements (texts, titles, boxes, symbols, backgrounds, ...). 
+
+To modify text elements
+
+- Can change the properties of all or particular text elements
+
+- Overwrite default `element_text()` within `theme()` call
+
+```{r}
+#here we are editing axis titles
+
+ggplot(chic, aes(x = date, y = temp)) +
+  geom_point(color = "firebrick") +
+  labs(x = "Year", y = "Temperature (°F)") +
+  theme(axis.title.x = element_text(vjust = 0, size = 15),
+        axis.title.y = element_text(vjust = 2, size = 15))
+
+```
+
+
+> `vjust` #refers to the vertical alignment - ranges between 0 and 1 (can specify out of that range)
+
+You can change the distance by specifying the margin of both text elements:
+
+```{r}
+ggplot(chic, aes(x = date, y = temp)) +
+  geom_point(color = "firebrick") +
+  labs(x = "Year", y = "Temperature (°F)") +
+  theme(axis.title.x = element_text(margin = margin(t = 10), size = 15),
+        axis.title.y = element_text(margin = margin(r = 10), size = 15))
+```
+
+
+The labels `t` and `r` within the `margin()` object refer to the *top* and *right*, respectively.
+
+Can specify margins as: `margin(t, r, b, l)`.
+
+*remember as "T-R-o-u-B-L-e"*
+
+### **Change Aesthetics of Axis Titles**
+
+
+
+

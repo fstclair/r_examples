@@ -1,0 +1,42 @@
+---
+title: "Violin Plot"
+author: "Faith St. Clair"
+format: html
+editor: visual
+---
+
+
+
+
+
+
+
+
+
+
+
+Useful code:
+
+```{r}
+g + geom_violin(fill = "gray80", linewidth = 1, alpha = .5)
+
+#jitter points inside the violin plots 
+g + geom_violin(fill = "gray80", linewidth = 1, alpha = .5) +
+    geom_jitter(alpha = .25, width = .3) +
+    coord_flip()
+
+#guide jitter points by density to make it more appealing
+library(ggforce)
+
+g + geom_violin(fill = "gray80", linewidth = 1, alpha = .5) +
+    geom_sina(alpha = .25) +
+    coord_flip()
+
+#combine violin with box plot
+g + geom_violin(aes(fill = season), linewidth = 1, alpha = .5) +
+    geom_boxplot(outlier.alpha = 0, coef = 0,
+                 color = "gray40", width = .2) +
+    scale_fill_brewer(palette = "Dark2", guide = "none") +
+    coord_flip()
+```
+
