@@ -5,16 +5,6 @@ format: html
 editor: visual
 ---
 
-
-
-
-
-
-
-
-
-
-
 Useful code:
 
 ```{r}
@@ -39,4 +29,3 @@ g + geom_violin(aes(fill = season), linewidth = 1, alpha = .5) +
     scale_fill_brewer(palette = "Dark2", guide = "none") +
     coord_flip()
 ```
-
