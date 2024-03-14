@@ -1,0 +1,60 @@
+---
+title: "Midterm Reflection"
+author: "Faith St. Clair"
+format: 
+  html:
+    toc: true
+    theme: sketchy
+editor: source
+---
+
+---
+
+# Faith's midterm reflection
+
+---
+
+<br>
+
+### 1. Technical objectives
+
+<br>
+
+I have understood and implemented Github and R Studio, worked in and adjusted quarto documents, and completed the assignments. I have also used code to further my own research by making graphs and the website as a place to store a glimpse of my research project.
+
+<br>
+
+---
+
+<br>
+
+### 2. Communications
+
+<br>
+
+I answer questions/assist with issues during class as best as I can.
+
+<br>
+
+---
+
+<br>
+
+### 3. Personal objectives
+
+<br>
+
+I have made violin plots of my data, but I wouldn't necessarily call them "sweet" quite yet. I have been focusing my attention more on the workflowr website layout and getting all the data on there before diving into adjusting the plots. I am nearing the end of my project and most likely won't get to proteomics data as we've had some trouble with the genome of the parasite. 
+
+I believe I am spending a decent amount of time trying to get things to work and it takes me a little longer to get the output. I would give myself between a B+ to A- for the start of the semester.
+
+<br>
+
+---
+
+
+
+
+
+
+
