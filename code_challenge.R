@@ -2,6 +2,12 @@
 #Coding challenge - Faith St. Clair
 #merging my work with the hints provided
 
+# Randy's comments -----
+
+# You do not have code to read in the input data so I cannot rerun or be sure this works.  I cannot find the data in your directory.  Please fix.
+
+
+
 #load libraries
 library(tidyverse)
 #install.packages("janitor")
