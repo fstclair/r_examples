@@ -2,7 +2,15 @@
 #Coding challenge - Faith St. Clair
 #merging my work with the hints provided
 
+<<<<<<< HEAD
 ###
+=======
+# Randy's comments -----
+
+# You do not have code to read in the input data so I cannot rerun or be sure this works.  I cannot find the data in your directory.  Please fix.
+
+
+>>>>>>> a7d1c6eac7dac58444d5f91eb757948e1c91bb0e
 
 #load libraries
 library(tidyverse)
