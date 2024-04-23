@@ -14,15 +14,10 @@ library(readr)
 
 #read in data
 bps_aoi_attributes <- read_csv("input_data/bps_aoi_attributes.csv")
-
 bps_model_number_name <- read_csv("input_data/bps_model_number_name.csv")
-
 combine_raw <- read_csv("input_data/combine_raw.csv")
-
 LF16_BPS_200 <- read_csv("input_data/LF16_BPS_200.csv")
-
 ref_con_modified <- read_csv("input_data/ref_con_modified.csv")
-
 scls_aoi_attributes <- read_csv("input_data/scls_aoi_attributes.csv")
 
 ###
