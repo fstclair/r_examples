@@ -2,15 +2,10 @@
 #Coding challenge - Faith St. Clair
 #merging my work with the hints provided
 
-<<<<<<< HEAD
-###
-=======
+
 # Randy's comments -----
 
 # You do not have code to read in the input data so I cannot rerun or be sure this works.  I cannot find the data in your directory.  Please fix.
-
-
->>>>>>> a7d1c6eac7dac58444d5f91eb757948e1c91bb0e
 
 #load libraries
 library(tidyverse)
@@ -21,12 +16,12 @@ library(readr)
 ###
 
 #read in data
-bps_aoi_attributes <- read_csv("input_data/bps_aoi_attributes.csv")
-bps_model_number_name <- read_csv("input_data/bps_model_number_name.csv")
-combine_raw <- read_csv("input_data/combine_raw.csv")
-LF16_BPS_200 <- read_csv("input_data/LF16_BPS_200.csv")
-ref_con_modified <- read_csv("input_data/ref_con_modified.csv")
-scls_aoi_attributes <- read_csv("input_data/scls_aoi_attributes.csv")
+bps_aoi_attributes <- read_csv("bps_aoi_attributes.csv")
+bps_model_number_name <- read_csv("bps_model_number_name.csv")
+combine_raw <- read_csv("combine_raw.csv")
+LF16_BPS_200 <- read_csv("LF16_BPS_200.csv")
+ref_con_modified <- read_csv("ref_con_modified.csv")
+scls_aoi_attributes <- read_csv("scls_aoi_attributes.csv")
 
 ###
 
@@ -145,9 +140,9 @@ plot <-
     caption = "Data from landfire.gov.",
     x = "",
     y = "Percent") +
-  theme_minimal(base_size = 12) +
+  theme_minimal(base_size = 8) +
   theme(plot.caption = element_text(hjust = 0, face = "italic"), #default is hjust=1
-        plot.title.position = "plot", #NEW parameter. apply for subtitle too.
+        plot.title.position = "plot", #NEW parameter. apply for subtitle too
         plot.caption.position =  "plot") +
   scale_fill_manual(values = c("#3d4740", "#32a852" ), # present (grey), historical (green)
                     name = " ", 
