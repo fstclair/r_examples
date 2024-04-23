@@ -1,7 +1,5 @@
 #######
 #Coding challenge - Faith St. Clair
-#merging my work with the hints provided
-
 
 # Randy's comments -----
 
@@ -117,20 +115,13 @@ bps_scls_top <- aoi_ref_cur %>%
 
 # order classes for chart
 bps_scls_top$ref_label <- factor(bps_scls_top$ref_label, 
-                                 levels = c(
-                                   "Developed",
-                                   "Agriculture",
-                                   "E",
-                                   "D",
-                                   "C",
-                                   "B",
-                                   "A"))
+                                 levels = c("Developed", "Agriculture", "E", "D", "C", "B", "A"))
 
 #make the plot!
 
 plot <-
   ggplot(bps_scls_top, aes(fill = factor(ref_cur), y = percent, x = ref_label)) + 
-  geom_col(width = 0.8, position = position_dodge()) +
+  geom_col(width = 0.9, position = position_dodge()) +
   coord_flip() +
   facet_grid(. ~BpS) +
   scale_x_discrete(limits = (levels(bps_scls_top$ref_label))) +
@@ -140,9 +131,9 @@ plot <-
     caption = "Data from landfire.gov.",
     x = "",
     y = "Percent") +
-  theme_minimal(base_size = 8) +
-  theme(plot.caption = element_text(hjust = 0, face = "italic"), #default is hjust=1
-        plot.title.position = "plot", #NEW parameter. apply for subtitle too
+  theme_minimal(base_size = 12) +
+  theme(plot.caption = element_text(hjust = 0, face = "italic"),
+        plot.title.position = "plot", #new parameter. apply for subtitle too
         plot.caption.position =  "plot") +
   scale_fill_manual(values = c("#3d4740", "#32a852" ), # present (grey), historical (green)
                     name = " ", 
