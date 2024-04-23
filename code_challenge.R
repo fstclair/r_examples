@@ -135,7 +135,7 @@ plot <-
   theme(plot.caption = element_text(hjust = 0, face = "italic"),
         plot.title.position = "plot", #new parameter. apply for subtitle too
         plot.caption.position =  "plot") +
-  scale_fill_manual(values = c("#3d4740", "#32a852" ), # present (grey), historical (green)
+  scale_fill_manual(values = c("#3d4740", "#32a852" ), # present (grey), past (green)
                     name = " ", 
                     labels = c("Present",
                                "Past")) +
