@@ -3,7 +3,12 @@
 
 # Randy's comments -----
 
-# You do not have code to read in the input data so I cannot rerun or be sure this works.  I cannot find the data in your directory.  Please fix.
+# Thanks for fixing this!  It ran without issue, which was a thing of beauty!  Now that you have this reproducible code I hope that you will share and help someone else!
+# I appreciated your reflection.  It is really hard to understand new datasets!  If you want to continue with R, I suggest doing short tutorials on anything you are interested in just to practice looking at different data, and data formats.
+# The formatting of your code is a bit weird making it hard to read.  A couple suggestions:
+    # Remove any stray ### as that ends up being an "Untitled" line in the       outline
+    # Watch hard returns.  See lines 74-80.  
+# I promised no quizzes, but if I were to do quizzes I would quiz you about some of the functions here.  They are ones often used in R, so try to keep track of them.
 
 #load libraries
 library(tidyverse)
