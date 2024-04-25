@@ -1,0 +1,36 @@
+---
+title: "Reflection and Workflowr Planning"
+author: "Faith St. Clair"
+format: html
+editor: visual
+---
+
+---
+
+## Reflection for Intro to R Class
+
+- I have really enjoyed this class and all I have learned this semester. I believe I put effort into each of the assignments, from the beginning R notes to the workflowr website. After learning R in another class, this class allowed me to fill holes in my knowledge of R and I am more comfortable coding.
+
+- One thing I have put a lot of effort in is learning how to use my resources. The resources provided in this class have been super helpful, and I feel I can tackle more difficult coding problems with researching and googling.
+
+- I believe I have spent a decent amount of my time learning how to code and put in my best effort with each assignment.
+
+
+---
+
+## Plan for Workflowr Website
+
+1. CLean up graphs for "publication quality" graphs.
+  - My next step will be to re-write my thesis to publish it, and I need to have this done before I leave Villanova.
+  
+2. Figure out image problem so they are displayed on the website.
+
+3. Add some preliminary data to tell the full story of my thesis.
+
+4. Add some design features (i.e. drop-down menus on the top for each of my experiments or graphs)
+
+
+
+
+
+
